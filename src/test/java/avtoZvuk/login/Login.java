@@ -2,6 +2,7 @@ package avtoZvuk.login;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -18,6 +19,8 @@ public class Login {
 
         webDriver.manage().window().maximize();
         webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+//        Cookie ck = new Cookie("PHPSESSID", "s5vuik5vsf09e5qk74l917nrfd");
+//        webDriver.manage().addCookie(ck);
         webDriver.get("https://avtozvuk.ua/");
 
         System.out.println("Site was open");
