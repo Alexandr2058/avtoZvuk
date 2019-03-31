@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import pages.FavoritesPage;
 import pages.HomePage;
 import pages.LoginPage;
 
@@ -15,6 +16,7 @@ public class ParentTest {
     WebDriver webDriver;
     protected LoginPage loginPage;
     protected HomePage homePage;
+    protected FavoritesPage favoritesPage;
 
     @Before
     public void setUp() {
@@ -27,6 +29,7 @@ public class ParentTest {
         webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         loginPage = new LoginPage(webDriver);
         homePage = new HomePage(webDriver);
+        favoritesPage = new FavoritesPage(webDriver);
 
     }
 

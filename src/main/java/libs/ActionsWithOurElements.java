@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class ActionsWithOurElements {
     WebDriver webDriver;
@@ -46,6 +47,26 @@ public class ActionsWithOurElements {
         }catch (Exception e) {
             logger.info("Element is displayed -> error");
             return false;
+        }
+    }
+
+    public void selectTextInDD(WebElement element, String text) {
+        try {
+            Select select = new Select(element);
+            select.selectByVisibleText(text);
+            logger.info(text + "was selected in drop down");
+        }catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
+    }
+
+    public void selectValueinDD(WebElement element, String value) {
+        try {
+            Select select = new Select(element);
+            select.selectByValue(value);
+            logger.info(value + "was selected in drop down");
+        }catch (Exception e) {
+            printErrorAndStopTest(e);
         }
     }
 

@@ -24,6 +24,12 @@ public class LoginPage extends ParentPage{
     @FindBy (xpath = ".// *[@class='active-form__input active-form__input_submit']")
     private  WebElement buttonSubmit;
 
+    @FindBy (xpath = ".//*[@class = 'top-auth__logout']" )
+    private  WebElement buttonOut;
+
+    @FindBy (xpath =".//*[@href='/contact']")
+    private WebElement contact;
+
 
     public void openPage() {
         try {
@@ -64,5 +70,22 @@ public class LoginPage extends ParentPage{
 //            System.out.println("Can not work with element" + e);
 //            Assert.fail("Can not work with element" + e);
 //        }
+    }
+
+    public void login(String login, String passWorrd) {
+        openPage();
+        clickOnButtonAuth();
+        enterTextInToInputLogin(login);
+        enterTextInToInputPass(passWorrd);
+        clickOnButtonSubmit();
+//        clickOnButtonOut();
+    }
+
+    public void clickOnButtonOut() {
+        actionsWithOurElements.clickOnElement(buttonOut);
+    }
+
+    public void clickOnElementContact() {
+        actionsWithOurElements.clickOnElement(contact);
     }
 }
